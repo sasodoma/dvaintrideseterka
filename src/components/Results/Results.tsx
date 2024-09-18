@@ -79,10 +79,9 @@ export function Results() {
     );
   };
 
-  const win = getAllWordsGuessed(targets, guesses);
-  const guessCount = getAllWordsGuessed(targets, guesses)
-    ? guesses.length
-    : "X";
+  const win = getAllWordsGuessed(targets, guesses) && guesses.length <= NUM_GUESSES[challenge];
+  const lose = !getAllWordsGuessed(targets, guesses);
+  const guessCount = lose ? "X" : guesses.length;
   const maxGuesses = NUM_GUESSES[challenge];
   const timeText = formatTimeElapsed(timeElapsed);
 
@@ -90,12 +89,12 @@ export function Results() {
     <div
       className={cn(
         styles.results,
-        colorBlind ? null : win ? styles.green : styles.red,
+        colorBlind ? null : win ? styles.green : lose ? styles.red : styles.blue,
         wideMode && styles.wide
       )}
     >
       <p className={styles.title}>
-        {win ? "🎉 Zmaga! 🎉" : "Več sreče prihodnjič 😓"}
+        {win ? "🎉 Zmaga! 🎉" : lose ? "Več sreče prihodnjič 😓" : "Počasi se daleč pride 😐"}
       </p>
       <p className={styles.info}>
         Poskusi: {guessCount}/{maxGuesses} · Čas: {timeText}

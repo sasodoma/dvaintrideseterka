@@ -19,6 +19,7 @@
   --red: hsl(0, 88%, 58%);
   --red-bg: hsl(0, 100%, 40%);
   --green-bg: hsl(150, 88%, 30%);
+  --blue-bg: hsl(200 60% 45%);
   --width: 600px;
   --width-wide: 1200px;
 }

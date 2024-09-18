@@ -14,6 +14,9 @@
 .results.green {
   background-color: var(--green-bg);
 }
+.results.blue {
+  background-color: var(--blue-bg);
+}
 .results.wide {
   max-width: var(--width-wide);
 }

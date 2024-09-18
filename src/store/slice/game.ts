@@ -17,7 +17,7 @@ import {
 import { range } from "../../util";
 import {
   NUM_BOARDS,
-  NUM_GUESSES,
+  //NUM_GUESSES,
   PRACTICE_MODE_MIN_ID,
   WORDS_VALID,
 } from "../consts";
@@ -168,8 +168,9 @@ export const gameReducer = createReducer(
 
         // Check if game over
         const allWordsGuessed = getAllWordsGuessed(game.targets, game.guesses);
-        const maxGuesses = game.guesses.length >= NUM_GUESSES[game.challenge];
-        if (allWordsGuessed || maxGuesses) {
+        //const maxGuesses = game.guesses.length === NUM_GUESSES[game.challenge];
+
+        if (allWordsGuessed) {
           game.endTime = action.payload.timestamp;
 
           // Add stat to game history
