@@ -25,6 +25,7 @@ export const ALPHABET = new Set([
   "A",
   "B",
   "C",
+  "Č",
   "D",
   "E",
   "F",
@@ -38,16 +39,14 @@ export const ALPHABET = new Set([
   "N",
   "O",
   "P",
-  "Q",
   "R",
   "S",
+  "Š",
   "T",
   "U",
   "V",
-  "W",
-  "X",
-  "Y",
   "Z",
+  "Ž",
 ]);
 
 export { WORDS_TARGET, WORDS_VALID } from "./wordlist";

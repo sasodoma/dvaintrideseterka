@@ -26,19 +26,18 @@ export function Keyboard() {
       )}
     >
       <div className={styles.row1}>
-        <Key char="Q" />
-        <Key char="W" />
         <Key char="E" />
         <Key char="R" />
         <Key char="T" />
-        <Key char="Y" />
+        <Key char="Z" />
         <Key char="U" />
         <Key char="I" />
         <Key char="O" />
         <Key char="P" />
+        <Key char="Š" />
+        <Key char="Ž" />
       </div>
       <div className={styles.row2}>
-        <div className={styles.spacer} />
         <Key char="A" />
         <Key char="S" />
         <Key char="D" />
@@ -48,12 +47,10 @@ export function Keyboard() {
         <Key char="J" />
         <Key char="K" />
         <Key char="L" />
-        <div className={styles.spacer} />
+        <Key char="Č" />
       </div>
       <div className={styles.row3}>
         {swapBackspaceEnter ? <Key char="enter" /> : <Key char="backspace" />}
-        <Key char="Z" />
-        <Key char="X" />
         <Key char="C" />
         <Key char="V" />
         <Key char="B" />
