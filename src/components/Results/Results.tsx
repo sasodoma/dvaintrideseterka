@@ -95,14 +95,14 @@ export function Results() {
       )}
     >
       <p className={styles.title}>
-        {win ? "🎉 You win! 🎉" : "Better luck next time 😓"}
+        {win ? "🎉 Zmaga! 🎉" : "Več sreče prihodnjič 😓"}
       </p>
       <p className={styles.info}>
-        Guesses: {guessCount}/{maxGuesses} · Time: {timeText}
+        Poskusi: {guessCount}/{maxGuesses} · Čas: {timeText}
         {gameMode !== "historic" && (
           <>
             {" "}
-            · <LinkButton onClick={handleViewStatsClick}>View stats</LinkButton>
+            · <LinkButton onClick={handleViewStatsClick}>Ogled statistike</LinkButton>
           </>
         )}
       </p>
@@ -110,7 +110,7 @@ export function Results() {
         <div className={styles.share}>
           <pre className={styles.text}>{shareableText}</pre>
           <Button onClick={handleCopyClick}>
-            {copied ? "Copied!" : "Copy to clipboard"}
+            {copied ? "Kopirano!" : "Kopiraj na odložišče"}
           </Button>
         </div>
         <div className={styles.words}>
@@ -142,22 +142,21 @@ function getShareableText(
 
   // Title
   if (challenge === "perfect") {
-    text += "Perfect Duotrigordle";
+    text += "Popolna Dvaintrideseterka";
   } else {
     if (gameMode === "daily") {
-      text += "Daily";
+      text += "Dnevn";
     } else if (gameMode === "practice") {
-      text += "Practice";
+      text += "Poskusn";
     } else if (gameMode === "historic") {
-      text += "Historic";
+      text += "Pretekl";
     }
-    text += " ";
     if (challenge === "normal") {
-      text += "Duotrigordle";
+      text += "a Dvaintrideseterka";
     } else if (challenge === "sequence") {
-      text += "Sequence";
+      text += "o Zaporedje";
     } else if (challenge === "jumble") {
-      text += "Jumble";
+      text += "a Zmešanka";
     }
     if (gameMode === "daily" || gameMode === "historic") {
       text += ` #${id}`;
@@ -170,11 +169,11 @@ function getShareableText(
     ? guesses.length
     : "X";
   const maxGuesses = NUM_GUESSES[challenge];
-  text += `Guesses: ${guessCount}/${maxGuesses}\n`;
+  text += `Poskusi: ${guessCount}/${maxGuesses}\n`;
 
   // Timer
   if (showTimer) {
-    text += `Time: ${formatTimeElapsed(timeElapsed)}\n`;
+    text += `Čas: ${formatTimeElapsed(timeElapsed)}\n`;
   }
 
   // Emojis
@@ -198,7 +197,7 @@ function getShareableText(
   }
 
   // Link
-  text += "https://duotrigordle.com/";
+  text += "https://dvaintrideseterka.si/";
 
   return text;
 }
