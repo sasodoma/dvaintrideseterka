@@ -146,8 +146,9 @@
 
 .letter {
   user-select: none;
-  font-size: 17px;
+  font-size: 15px;
   line-height: 0.75;
+  margin-top: 2px;
 }
 
 @media screen and (min-width: 400px) {
@@ -155,7 +156,8 @@
     height: 20px;
   }
   .letter {
-    font-size: 20px;
+    font-size: 18px;
+    margin-top: 3px;
   }
 }
 
@@ -164,7 +166,7 @@
     height: 22px;
   }
   .letter {
-    font-size: 22px;
+    font-size: 20px;
   }
 }
 
@@ -173,7 +175,8 @@
     height: 25px;
   }
   .letter {
-    font-size: 25px;
+    font-size: 23px;
+    margin-top: 4px;
   }
 }
 
@@ -182,7 +185,7 @@
     height: 26px;
   }
   .letter {
-    font-size: 26px;
+    font-size: 24px;
   }
 }
 
@@ -192,6 +195,6 @@
     bottom: -8px;
   }
   .letter {
-    font-size: 27px;
+    font-size: 25px;
   }
 }
