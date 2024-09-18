@@ -9,15 +9,15 @@
 }
 .row1 {
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
+  grid-template-columns: repeat(11, 1fr);
 }
 .row2 {
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
+  grid-template-columns: repeat(11, 1fr);
 }
 .row3 {
   display: grid;
-  grid-template-columns: 4fr repeat(5, 2fr) 4fr;
+  grid-template-columns: 2fr repeat(7, 1fr) 2fr;
 }
 .spacer {
   visibility: hidden;

@@ -26,6 +26,8 @@ export function Keyboard() {
       )}
     >
       <div className={styles.row1}>
+        <Key char="Q" />
+        <Key char="W" />
         <Key char="E" />
         <Key char="R" />
         <Key char="T" />
@@ -35,7 +37,6 @@ export function Keyboard() {
         <Key char="O" />
         <Key char="P" />
         <Key char="Š" />
-        <Key char="Ž" />
       </div>
       <div className={styles.row2}>
         <Key char="A" />
@@ -48,9 +49,12 @@ export function Keyboard() {
         <Key char="K" />
         <Key char="L" />
         <Key char="Č" />
+        <Key char="Ž" />
       </div>
       <div className={styles.row3}>
         {swapBackspaceEnter ? <Key char="enter" /> : <Key char="backspace" />}
+        <Key char="Y" />
+        <Key char="X" />
         <Key char="C" />
         <Key char="V" />
         <Key char="B" />
@@ -79,7 +83,9 @@ function Key(props: KeyProps) {
       ? () => dispatch(gameAction.inputBackspace())
       : props.char === "enter"
       ? () => dispatch(gameAction.inputEnter({ timestamp: Date.now() }))
-      : () => dispatch(gameAction.inputLetter({ letter: props.char }));
+      : ALPHABET.has(props.char)
+      ? () => dispatch(gameAction.inputLetter({ letter: props.char }))
+      : () => {};
 
   const targets = useAppSelector((s) => s.game.targets);
   const guesses = useAppSelector((s) => s.game.guesses);
@@ -141,8 +147,15 @@ function generateStyles(
   colorBlind: boolean
 ): CSSProperties {
   // Don't generate style for backspace & enter keys
-  if (!ALPHABET.has(char)) {
+  if (char.length !== 1) {
     return {};
+  }
+  // Disable non Slovenian letters
+  if (!ALPHABET.has(char)) {
+    return {
+      backgroundColor: "var(--black)",
+      filter: "contrast(0.5) brightness(0.5)",
+    };
   }
 
   // Don't generate style if letter isn't in any guesses yet

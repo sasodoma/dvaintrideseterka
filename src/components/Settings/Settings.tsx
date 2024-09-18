@@ -136,7 +136,7 @@ export function Settings() {
           <label className={styles.label} htmlFor="swap-backspace-enter">
             <p className={styles.name}>Zamenjaj Vračalko in Enter</p>
             <p className={styles.description}>
-              Da je tipkovnica enaka kot na Besedle
+              Da je postavitev enaka kot na Besedle
             </p>
           </label>
         </div>
