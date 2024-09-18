@@ -97,33 +97,33 @@ function serializePath(path: UiPath): { url: string; title: string } {
     let title;
     if (path.gameMode === "daily") {
       if (path.challenge === "normal") {
-        title = "Daily Duotrigordle";
+        title = "Dnevna dvaintrideseterka";
       } else if (path.challenge === "sequence") {
-        title = "Daily Sequence";
+        title = "Dnevno zaporedje";
       } else if (path.challenge === "jumble") {
-        title = "Daily Jumble";
+        title = "Dnevna zmešanka";
       } else {
         return assertNever(path.challenge);
       }
     } else if (path.gameMode === "practice") {
       if (path.challenge === "normal") {
-        title = "Practice Duotrigordle";
+        title = "Poskusna dvaintrideseterka";
       } else if (path.challenge === "sequence") {
-        title = "Practice Sequence";
+        title = "Poskusno zaporedje";
       } else if (path.challenge === "jumble") {
-        title = "Practice Jumble";
+        title = "Poskusna zmešanka";
       } else if (path.challenge === "perfect") {
-        title = "Perfect Challenge";
+        title = "Popolni izziv";
       } else {
         return assertNever(path.challenge);
       }
     } else if (path.gameMode === "historic") {
       if (path.challenge === "normal") {
-        title = "Historic Duotrigordle";
+        title = "Pretekla dvaintrideseterka";
       } else if (path.challenge === "sequence") {
-        title = "Historic Sequence";
+        title = "Preteklo zaporedje";
       } else if (path.challenge === "jumble") {
-        title = "Historic Jumble";
+        title = "Pretekla zmešanka";
       } else {
         return assertNever(path.challenge);
       }
@@ -133,15 +133,15 @@ function serializePath(path: UiPath): { url: string; title: string } {
     return { url, title };
   } else if (path.view === "stats") {
     const url = `/stats/${path.gameMode}/${path.challenge}`;
-    return { url, title: "Stats" };
+    return { url, title: "Statistika" };
   } else if (path.view === "welcome") {
-    return { url: "/", title: "Duotrigordle" };
+    return { url: "/", title: "Dvaintrideseterka" };
   } else if (path.view === "how-to-play") {
-    return { url: "/how-to-play", title: "How to play" };
+    return { url: "/how-to-play", title: "Kako igrati" };
   } else if (path.view === "privacy-policy") {
-    return { url: "/privacy-policy", title: "Privacy Policy" };
+    return { url: "/privacy-policy", title: "O zasebnosti" };
   } else if (path.view === "account") {
-    return { url: "/account", title: "Account" };
+    return { url: "/account", title: "Račun" };
   } else {
     assertNever(path.view);
   }

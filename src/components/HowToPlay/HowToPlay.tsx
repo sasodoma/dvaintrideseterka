@@ -7,95 +7,93 @@ export function HowToPlay() {
 
   return (
     <div className={cn(styles.main, colorBlind && styles.colorBlind)}>
-      <h1 className={styles.big}>Guess all 32 words in 37 tries!</h1>
+      <h1 className={styles.big}>Ugani vseh 32 besed v 37 poskusih!</h1>
       <p>
-        In Duotrigordle, there are 32 secret words you must guess. Start by
-        entering any 5 letter word. Guesses happen for all 32 words
-        simultaneously.
+        V igri Dvaintrideseterka morate uganiti 32 skrivnih besed. Začnite
+        tako, da vnesete katerokoli 5-črkovno besedo. Preizkus se izvede
+        za vseh 32 besed hkrati.
       </p>
       <p>
-        After guessing a word, the tiles will change color to indicate whether
-        your guess is correct. All guesses must be valid English words.
+        Po vsaki ugibanju se ploščice pobarvajo glede na pravilnost poskusa.
+        Vsi poskusi morajo biti pravilne slovenske besede.
       </p>
       <div className={styles.row}>
         <div className={styles.grid}>
-          <div className={styles.cell}>H</div>
-          <div className={cn(styles.cell, styles.yellow)}>E</div>
-          <div className={styles.cell}>L</div>
-          <div className={styles.cell}>L</div>
-          <div className={cn(styles.cell, styles.yellow)}>O</div>
-          <div className={styles.cell}>W</div>
-          <div className={cn(styles.cell, styles.green)}>O</div>
-          <div className={styles.cell}>R</div>
-          <div className={styles.cell}>L</div>
-          <div className={styles.cell}>D</div>
-          <div className={styles.cell}>B</div>
+          <div className={cn(styles.cell, styles.green)}>K</div>
+          <div className={cn(styles.cell, styles.green)}>R</div>
           <div className={styles.cell}>A</div>
-          <div className={cn(styles.cell, styles.yellow)}>C</div>
+          <div className={styles.cell}>V</div>
+          <div className={styles.cell}>A</div>
           <div className={styles.cell}>O</div>
-          <div className={cn(styles.cell, styles.green)}>N</div>
+          <div className={styles.cell}>T</div>
+          <div className={cn(styles.cell, styles.yellow)}>R</div>
+          <div className={styles.cell}>O</div>
+          <div className={cn(styles.cell, styles.yellow)}>K</div>
+          <div className={styles.cell}>P</div>
+          <div className={styles.cell}>T</div>
+          <div className={cn(styles.cell, styles.green)}>I</div>
+          <div className={styles.cell}>C</div>
+          <div className={styles.cell}>A</div>
+          <div className={cn(styles.cell, styles.input)}>K</div>
+          <div className={cn(styles.cell, styles.input)}>R</div>
+          <div className={cn(styles.cell, styles.input)}>I</div>
           <div className={cn(styles.cell, styles.input)}></div>
-          <div className={cn(styles.cell, styles.input)}>O</div>
           <div className={cn(styles.cell, styles.input)}></div>
-          <div className={cn(styles.cell, styles.input)}></div>
-          <div className={cn(styles.cell, styles.input)}>N</div>
         </div>
       </div>
       <p>
-        A yellow letter indicates that the letter is in the word, but is not in
-        the correct position. A green letter indicates that the letter is in the
-        correct position in the word. A gray letter indicates that the letter is
-        not in the word.
+        Rumena ploščica pomeni, da je črka v besedi, vendar ni na pravilnem
+        mestu. Zelena ploščica pomeni, da je črka na pravilnem mestu v besedi.
+        Siva ploščica pomeni, da črka ni v besedi.
       </p>
-      <p>Ghost letters help you visualize the position of green letters.</p>
+      <p>Zatemnjene črke v vnosni vrstici prikazujejo položaj zelenih ploščic.</p>
       <div className={styles.row}>
         <div className={styles.grid}>
-          <div className={styles.cell}>H</div>
-          <div className={cn(styles.cell, styles.yellow)}>E</div>
-          <div className={styles.cell}>L</div>
-          <div className={styles.cell}>L</div>
-          <div className={cn(styles.cell, styles.yellow)}>O</div>
-          <div className={styles.cell}>W</div>
-          <div className={cn(styles.cell, styles.green)}>O</div>
-          <div className={styles.cell}>R</div>
-          <div className={styles.cell}>L</div>
-          <div className={styles.cell}>D</div>
-          <div className={styles.cell}>B</div>
+        <div className={cn(styles.cell, styles.green)}>K</div>
+          <div className={cn(styles.cell, styles.green)}>R</div>
           <div className={styles.cell}>A</div>
-          <div className={cn(styles.cell, styles.yellow)}>C</div>
+          <div className={styles.cell}>V</div>
+          <div className={styles.cell}>A</div>
           <div className={styles.cell}>O</div>
-          <div className={cn(styles.cell, styles.green)}>N</div>
-          <div className={cn(styles.cell, styles.hint)}>O</div>
-          <div className={cn(styles.cell, styles.hint)}>C</div>
-          <div className={cn(styles.cell, styles.hint)}>E</div>
+          <div className={styles.cell}>T</div>
+          <div className={cn(styles.cell, styles.yellow)}>R</div>
+          <div className={styles.cell}>O</div>
+          <div className={cn(styles.cell, styles.yellow)}>K</div>
+          <div className={styles.cell}>P</div>
+          <div className={styles.cell}>T</div>
+          <div className={cn(styles.cell, styles.green)}>I</div>
+          <div className={styles.cell}>C</div>
+          <div className={styles.cell}>A</div>
+          <div className={cn(styles.cell, styles.hint)}>K</div>
+          <div className={cn(styles.cell, styles.hint)}>R</div>
+          <div className={cn(styles.cell, styles.hint)}>I</div>
+          <div className={cn(styles.cell, styles.hint)}>P</div>
           <div className={cn(styles.cell, styles.hint)}>A</div>
-          <div className={cn(styles.cell, styles.hint)}>N</div>
         </div>
       </div>
       <p>
-        Sometimes when typing a word, the letters will turn yellow, this is a
-        hint that your guess cannot be correct. You should check the position of
-        all yellow and green letters and try another word.
+        Včasih se ob vnosu besede črke obarvajo rumeno, kar pomeni, da vaše
+        ugibanje ne more biti pravilno. Preverite položaj vseh rumenih in zelenih
+        črk ter poskusite z drugo besedo.
       </p>
       <p>
-        The game is finished when you guess all 32 word, or you run out of
-        guesses.
+        Igra se konča, ko uganete vseh 32 besed ali vam zmanjka poskusov.
       </p>
-      <h1 className={styles.big}>Sequence Mode</h1>
+      <h1 className={styles.big}>Način zaporedje</h1>
       <p>
-        In sequence mode, only one board is visible at a time. Once you solve a
-        word, the next board becomes unlocked. To aid in the extra challenge,
-        you get 2 extra guesses (39 total).
+        V načinu zaporedje je hkrati vidna samo ena plošča. Ko uganete besedo,
+        se odklene naslednja plošča. Za pomoč pri dodatnem izzivu dobite 2
+        dodatna poskusa (skupaj 39).
       </p>
-      <h1 className={styles.big}>Jumble Mode</h1>
+      <h1 className={styles.big}>Način zmešanka</h1>
       <p>
-        In jumble mode, the first three words are randomly chosen for you. To
-        aid in the extra challenge, you get 1 extra guess (38 total).
+        V načinu zmešanka so prve tri besede naključno izbrane. Za pomoč pri
+        dodatnem izzivu dobite 1 dodaten poskus (skupaj 38).
       </p>
-      <h1 className={styles.big}>Perfect Challenge</h1>
+      <h1 className={styles.big}>Popolni izziv</h1>
       <p>
-        Are you up to the challenge? Guess all 32 words in exactly 32 guesses.
-        The first word you type is automatically correct.
+        Ste pripravljeni na izziv? Uganite vseh 32 besed v natanko 32 poskusih.
+        Prva beseda, ki jo vnesete, je samodejno pravilna.
       </p>
     </div>
   );

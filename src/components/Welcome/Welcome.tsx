@@ -40,7 +40,7 @@ export function Welcome() {
       )}
     >
       <TabButtons
-        tabs={["Daily", "Practice", "More"]}
+        tabs={["Dnevno", "Vaja", "Več"]}
         idx={tabIdx}
         onTabChange={(idx) => dispatch(uiAction.setWelcomeTab(idx))}
       />
@@ -63,18 +63,18 @@ function DailyTab() {
   return (
     <>
       <DailyLink
-        title="Daily Duotrigordle"
-        description="Solve 32 wordles at the same time"
+        title="Dnevna dvaintrideseterka"
+        description="Reši 32 ugank naenkrat."
         challenge="normal"
       />
       <DailyLink
-        title="Daily Sequence"
-        description="The next board is revealed only after solving the current board"
+        title="Dnevno zaporedje"
+        description="Naslednja uganka se razkrije šele po rešitvi trenutne."
         challenge="sequence"
       />
       <DailyLink
-        title="Daily Jumble"
-        description="Tired of using the same starting words? The first 3 words are randomly chosen for you"
+        title="Dnevna zmešanka"
+        description="Ste naveličani uporabe istih začetnih besed? Prve 3 besede so vam naključno izbrane."
         challenge="jumble"
       />
     </>
@@ -122,7 +122,7 @@ function DailyLink(props: DailyLinkProps) {
   return (
     <div className={styles.item}>
       <LinkButton className={styles.link} onClick={handleClick}>
-        {gameOver ? "View Results" : "Continue"}
+        {gameOver ? "Ogled rezultatov" : "Nadaljuj"}
       </LinkButton>
       <p>
         {props.title} #{gameSave.id} ({boardsComplete}/{NUM_BOARDS})
@@ -157,7 +157,7 @@ function PracticeTab() {
       historicId < 1 ||
       historicId >= todaysId
     ) {
-      alert("Please enter an number from 1 to " + (todaysId - 1));
+      alert("Prosim vnesite število od 1 do " + (todaysId - 1));
       return;
     }
     dispatch(
@@ -180,29 +180,29 @@ function PracticeTab() {
           className={styles.link}
           onClick={() => handleNewPracticeGameClick("normal")}
         >
-          Practice Duotrigordle
+          Poskusna dvaintrideseterka
         </LinkButton>
-        <p>Solve 32 wordles at the same time</p>
+        <p>Reši 32 ugank naenkrat.</p>
       </div>
       <div className={styles.item}>
         <LinkButton
           className={styles.link}
           onClick={() => handleNewPracticeGameClick("sequence")}
         >
-          Practice Sequence
+          Poskusno zaporedje
         </LinkButton>
-        <p>The next board is revealed only after solving the current board</p>
+        <p>Naslednja uganka se razkrije šele po rešitvi trenutne.</p>
       </div>
       <div className={styles.item}>
         <LinkButton
           className={styles.link}
           onClick={() => handleNewPracticeGameClick("jumble")}
         >
-          Practice Jumble
+          Poskusna zmešanka
         </LinkButton>
         <p>
-          Tired of using the same starting words? The first 3 words are randomly
-          chosen for you
+          Ste naveličani uporabe istih začetnih besed? Prve 3 besede so vam
+          naključno izbrane.
         </p>
       </div>
       <div className={styles.item}>
@@ -210,29 +210,30 @@ function PracticeTab() {
           className={styles.link}
           onClick={() => handleNewPracticeGameClick("perfect")}
         >
-          Perfect Challenge
+          Popolni izziv
         </LinkButton>
         <p>
-          The ultimate duotrigordle challenge! Can you complete 32 boards
-          without making a single mistake?
+          Najzahtevnejša dvaintrideseterka! Ali lahko rešiš 32 ugank brez
+          napake?
         </p>
       </div>
       <div className={styles.item}>
         <LinkButton className={styles.link} onClick={handleNewArchiveClick}>
-          Historic
+          Pretekle uganke
         </LinkButton>
-        <p>Play a past daily duotrigordle.</p>
+        <p>Igraj katero od prejšnjih ugank.</p>
         <p className={styles.historicDescription}>
-          <span>Play historic</span>
+          <span>Igraj</span>
           <select
             className={styles.historicSelect}
             value={historicChallenge}
             onChange={(e) => setHistoricChallenge(e.target.value as "normal")}
           >
-            <option value="normal">duotrigordle</option>
-            <option value="sequence">sequence</option>
-            <option value="jumble">jumble</option>
+            <option value="normal">dvaintrideseterko</option>
+            <option value="sequence">zaporedje</option>
+            <option value="jumble">zmešanko</option>
           </select>
+          <span>številka</span>
           <input
             size={3}
             className={styles.historicInput}
@@ -250,12 +251,12 @@ function PracticeTab() {
 
 function MoreTab() {
   const dispatch = useAppDispatch();
-  const kofiEmail = useAppSelector((s) => s.settings.kofiEmail);
-  const username = useAppSelector((s) => s.storage.account?.username ?? null);
+  //const kofiEmail = useAppSelector((s) => s.settings.kofiEmail);
+  //const username = useAppSelector((s) => s.storage.account?.username ?? null);
 
   return (
     <>
-      <div className={styles.item}>
+      {/*<div className={styles.item}>
         <LinkButton
           className={styles.link}
           onClick={() =>
@@ -267,14 +268,14 @@ function MoreTab() {
             )
           }
         >
-          Account
+          Račun
         </LinkButton>
         {username ? (
-          <p>Logged in as {username}</p>
+          <p>Prijavljeni ste kot {username}</p>
         ) : (
-          <p>Manage your duotrigordle account</p>
+          <p>Upravljajte svoj račun.</p>
         )}
-      </div>
+      </div>*/}
       <div className={styles.item}>
         <LinkButton
           className={styles.link}
@@ -287,9 +288,9 @@ function MoreTab() {
             )
           }
         >
-          Stats
+          Statistika
         </LinkButton>
-        <p>View your duotrigordle stats</p>
+        <p>Oglejte si statistiko svojih iger</p>
       </div>
       <div className={styles.item}>
         <LinkButton
@@ -303,54 +304,54 @@ function MoreTab() {
             )
           }
         >
-          How to play
+          Kako igrati
         </LinkButton>
-        <p>Learn how to play duotrigordle</p>
+        <p>Naučite se igrati dvaintrideseterko</p>
       </div>
-      <div className={styles.item}>
+      {/*<div className={styles.item}>
         <a
           className={styles.link}
           target="_blank"
           href="https://ko-fi.com/thesilican"
           rel="noreferrer"
         >
-          Buy me a ☕️
+          Kupite mi ☕️
         </a>
         {kofiEmail ? (
-          <p>Thank you for supporting ♥️</p>
+          <p>Hvala za podporo ♥️</p>
         ) : (
-          <p>Show your support! (and hide ads)</p>
+          <p>Pokažite podporo! (in odstranite oglase)</p>
         )}
-      </div>
-      <div className={styles.item}>
+      </div>*/}
+      {/*<div className={styles.item}>
         <LinkButton
           className={styles.link}
           onClick={() => dispatch(uiAction.showModal("changelog"))}
         >
-          Changelog
+          Seznam sprememb
         </LinkButton>
-      </div>
+      </div>*/}
       <div className={styles.item}>
         <a
           className={styles.link}
           target="_blank"
-          href="https://github.com/thesilican/duotrigordle"
+          href="https://github.com/sasodoma/dvaintrideseterka"
           rel="noreferrer"
         >
           GitHub
         </a>
       </div>
-      <div className={styles.item}>
+      {/*<div className={styles.item}>
         <a
           className={styles.link}
           target="_blank"
-          href="mailto:bryan.chen@duotrigordle.com"
+          href="mailto:admin@dvaintrideseterka.si"
           rel="noreferrer"
         >
-          Contact us
+          Kontakt
         </a>
-      </div>
-      <div className={styles.item}>
+      </div>*/}
+      {/*<div className={styles.item}>
         <LinkButton
           className={styles.link}
           onClick={() =>
@@ -362,9 +363,9 @@ function MoreTab() {
             )
           }
         >
-          Privacy Policy
+          O zasebnosti
         </LinkButton>
-      </div>
+      </div>*/}
     </>
   );
 }

@@ -127,7 +127,7 @@ export default function Stats() {
       <div className={styles.main}>
         <div className={styles.tabs}>
           <TabButtons
-            tabs={["Daily", "Practice"]}
+            tabs={["Dnevno", "Vaja"]}
             idx={gameModeTab}
             onTabChange={handleGameModeTabChange}
             size="small"
@@ -135,8 +135,8 @@ export default function Stats() {
           <TabButtons
             tabs={
               gameModeTab === 0
-                ? ["Normal", "Sequence", "Jumble"]
-                : ["Normal", "Sequence", "Jumble", "Perfect"]
+                ? ["Navadno", "Zaporedje", "Zmešanka"]
+                : ["Navadno", "Zaporedje", "Zmešanka", "Popolni izziv"]
             }
             idx={challengeTab}
             onTabChange={handleChallengeTabChange}
@@ -199,17 +199,17 @@ function StatsInfo(props: StatsInfoProps) {
           <p className={styles.value}>{win}</p>
           <p className={styles.value}>{currStreak}</p>
           <p className={styles.value}>{maxStreak}</p>
-          <p className={styles.label}>Played</p>
-          <p className={styles.label}>Win %</p>
+          <p className={styles.label}>Igre</p>
+          <p className={styles.label}>% uspešnih</p>
           <p className={styles.label}>
-            Current
+            Trenutni
             <br />
-            Streak
+            niz zmag
           </p>
           <p className={styles.label}>
-            Max
+            Najboljši
             <br />
-            Streak
+            niz zmag
           </p>
         </div>
       ) : (
@@ -219,16 +219,16 @@ function StatsInfo(props: StatsInfoProps) {
           <p className={styles.value}>{win}</p>
           <div />
           <div />
-          <p className={styles.label}>Played</p>
-          <p className={styles.label}>Win %</p>
+          <p className={styles.label}>Igre</p>
+          <p className={styles.label}>% uspešnih</p>
           <div />
         </div>
       )}
-      <p className={styles.title}>Games History</p>
+      <p className={styles.title}>Zgodovina iger</p>
       <div className={styles.pastGames}>
         <p className={styles.header}>#</p>
-        <p className={styles.header}>Guesses</p>
-        <p className={styles.header}>Time</p>
+        <p className={styles.header}>Poskusi</p>
+        <p className={styles.header}>Čas</p>
         {props.stats
           .map((stats, i) => ({ stats, i }))
           .reverse()
@@ -240,8 +240,8 @@ function StatsInfo(props: StatsInfoProps) {
             </Fragment>
           ))}
       </div>
-      <p className={styles.title}>Guess Distribution</p>
-      <p>Guess Count</p>
+      <p className={styles.title}>Porazdelitev poskusov</p>
+      <p>Število poskusov</p>
       <div className={styles.chart}>
         {bars.map((i) => {
           const label = i === null ? "X" : i;
@@ -261,16 +261,16 @@ function StatsInfo(props: StatsInfoProps) {
           );
         })}
       </div>
-      <p className={styles.title}>Time Distribution</p>
+      <p className={styles.title}>Porazdelitev časov</p>
       <div className={styles.times}>
-        <p>Best:</p>
+        <p>Najboljši:</p>
         <p>{bestTime}</p>
-        <p>Average (recent 7):</p>
+        <p>Povprečje zadnjih 7:</p>
         <p>{avgTime7}</p>
-        <p>Average (all):</p>
+        <p>Povprečje vseh:</p>
         <p>{avgTimeAll}</p>
       </div>
-      <p>Time (minutes)</p>
+      <p>Čas (minute)</p>
       <div className={styles.chart}>
         {TIME_BUCKETS.map((i) => {
           const last = i === Infinity;
@@ -426,7 +426,7 @@ function StatsExport(props: StatsExportProps) {
     <div className={styles.exportContainer}>
       {isExpanded ? (
         <>
-          <LinkButton onClick={() => setExpanded(false)}>Close</LinkButton>
+          <LinkButton onClick={() => setExpanded(false)}>Zapri</LinkButton>
           <textarea
             className={styles.export}
             rows={10}
@@ -437,7 +437,7 @@ function StatsExport(props: StatsExportProps) {
         </>
       ) : (
         <>
-          <LinkButton onClick={() => setExpanded(true)}>Export</LinkButton>
+          <LinkButton onClick={() => setExpanded(true)}>Izvozi</LinkButton>
         </>
       )}
     </div>
@@ -446,7 +446,7 @@ function StatsExport(props: StatsExportProps) {
 
 export function stringifyHistory(stats: StatsEntry[]): string {
   const lines = [];
-  lines.push("Game Mode,Challenge,Id,Guesses,Time (ms)");
+  lines.push("Način,Izziv,Id,Poskusi,Čas (ms)");
   for (const entry of stats) {
     const line = [];
     line.push(entry.gameMode);

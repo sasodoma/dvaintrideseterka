@@ -58,7 +58,7 @@ function Row1() {
   const handleBackClick = () => {
     if (view === "game" && gameMode !== "daily") {
       const res = window.confirm(
-        "Are you sure you want to quit your current game?"
+        "Ste prepričani, da želite zapustiti trenutno igro?"
       );
       if (!res) return;
     }
@@ -72,7 +72,7 @@ function Row1() {
 
   const handleRestartClick = () => {
     const res = window.confirm(
-      "Are you sure you want to restart your current game? (You can also use ctrl+r)"
+      "Ste prepričani, da želite ponovno začeti trenutno igro? (Uporabite lahko tudi Ctrl+R)"
     );
     if (!res) return;
     dispatch(gameAction.restart({ timestamp: Date.now() }));
@@ -83,38 +83,47 @@ function Row1() {
 
   const renderTitle = () => {
     if (view === "welcome") {
-      return "Duotrigordle";
+      return "Dvaintrideseterka";
     } else if (view === "game") {
       if (challenge === "perfect") {
-        return "Perfect Challenge";
+        return "Popolni izziv";
       }
+      const koncnica = 
+        challenge === "normal"
+          ? "a"
+          : challenge === "jumble"
+          ? "a"
+          : challenge === "sequence"
+          ? "o"
+          : "?";
       const gameModeText =
-        gameMode === "daily"
-          ? "Daily"
+        (gameMode === "daily"
+          ? "Dnevn"
           : gameMode === "practice"
-          ? "Practice"
+          ? "Poskusn"
           : gameMode === "historic"
-          ? "Historic"
-          : "?????";
+          ? "Pretekl"
+          : "?") + koncnica;
+      
       const challengeText =
         challenge === "normal"
-          ? "Duotrigordle"
+          ? "dvaintrideseterka"
           : challenge === "jumble"
-          ? "Jumble"
+          ? "zmešanka"
           : challenge === "sequence"
-          ? "Sequence"
+          ? "zaporedje"
           : "??????";
       const gameNumber =
         gameMode === "daily" || gameMode === "historic" ? ` #${gameId}` : "";
       return `${gameModeText} ${challengeText}${gameNumber}`;
     } else if (view === "privacy-policy") {
-      return "Privacy Policy";
+      return "O zasebnosti";
     } else if (view === "how-to-play") {
-      return "How to play";
+      return "Kako igrati";
     } else if (view === "stats") {
-      return "Stats";
+      return "Statistika";
     } else if (view === "account") {
-      return "Account";
+      return "Račun";
     } else {
       assertNever(view);
     }
@@ -130,7 +139,7 @@ function Row1() {
           className={styles.img}
           src={backIcon}
           alt="back"
-          title="Back to Homepage"
+          title="Nazaj na prvo stran"
         />
       </Button>
       <Button
@@ -141,7 +150,7 @@ function Row1() {
           className={styles.img}
           src={restartIcon}
           alt="restart"
-          title="Restart Game"
+          title="Začni znova"
         />
       </Button>
       <div className={styles.titleWrapper}>
@@ -160,7 +169,7 @@ function Row1() {
           className={styles.img}
           src={settingsIcon}
           alt="settings"
-          title="Settings"
+          title="Nastavitve"
         />
       </Button>
       <Button className={styles.icon} onClick={toggleFullscreen}>
@@ -168,7 +177,7 @@ function Row1() {
           className={styles.img}
           src={fullscreen ? fullscreenExitIcon : fullscreenIcon}
           alt="toggle fullscreen"
-          title="Toggle Fullscreen"
+          title="Celozaslonski način"
         />
       </Button>
     </div>
@@ -195,11 +204,11 @@ function Row2() {
   return (
     <div className={styles.row2}>
       <span>
-        Boards: {boardsCompleted}/{NUM_BOARDS}
+        Plošče: {boardsCompleted}/{NUM_BOARDS}
       </span>
       <Timer />
       <span className={cn(cannotWin && !gameOver && styles.red)}>
-        Guesses: {numGuesses}/{maxGuesses} ({extraGuesses})
+        Poskusi: {numGuesses}/{maxGuesses} ({extraGuesses})
       </span>
     </div>
   );
@@ -220,7 +229,7 @@ function Timer() {
     } else if (endTime !== null) {
       return formatTimeElapsed(endTime - startTime);
     } else if (pauseTime !== null) {
-      return "PAUSED";
+      return "PREMOR";
     } else {
       return formatTimeElapsed(now - startTime);
     }

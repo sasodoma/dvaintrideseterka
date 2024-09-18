@@ -1,13 +1,13 @@
-import cn from "classnames";
-import { ChangeEvent, useState } from "react";
-import { apiValidateEmail } from "../../api";
+//import cn from "classnames";
+//import { ChangeEvent, useState } from "react";
+//import { apiValidateEmail } from "../../api";
 import {
   settingsAction,
   uiAction,
   useAppDispatch,
   useAppSelector,
 } from "../../store";
-import { assertNever } from "../../util";
+//import { assertNever } from "../../util";
 import { Checkbox } from "../common/Checkbox/Checkbox";
 import { Modal } from "../common/Modal/Modal";
 import styles from "./Settings.module.css";
@@ -20,10 +20,10 @@ export function Settings() {
     showTimer,
     wideMode,
     disableAnimations,
-    hideAds,
+    //hideAds,
     hideCompletedBoards,
     hideEmptyRows,
-    kofiEmail,
+    //kofiEmail,
     stickyInput,
     showHints,
     swapBackspaceEnter,
@@ -31,7 +31,7 @@ export function Settings() {
 
   return (
     <Modal shown={shown} onClose={() => dispatch(uiAction.showModal(null))}>
-      <p className={styles.title}>Settings</p>
+      <p className={styles.title}>Nastavitve</p>
       <div className={styles.settingsList}>
         <div className={styles.setting}>
           <Checkbox
@@ -42,8 +42,8 @@ export function Settings() {
             id="color-blind-mode"
           />
           <label className={styles.label} htmlFor="color-blind-mode">
-            <p className={styles.name}>Colorblind Mode</p>
-            <p className={styles.description}>Uses higher contrast colors</p>
+            <p className={styles.name}>Način za barvno slepe</p>
+            <p className={styles.description}>Uporablja barve z boljšim kontrastom</p>
           </label>
         </div>
         <div className={styles.setting}>
@@ -53,8 +53,8 @@ export function Settings() {
             id="show-timer"
           />
           <label className={styles.label} htmlFor="show-timer">
-            <p className={styles.name}>Show Speedrun Timer</p>
-            <p className={styles.description}>For pro gamers</p>
+            <p className={styles.name}>Pokaži časovnik</p>
+            <p className={styles.description}>Samo za prave gejmerje</p>
           </label>
         </div>
         <div className={styles.setting}>
@@ -64,8 +64,8 @@ export function Settings() {
             id="wide-mode"
           />
           <label className={styles.label} htmlFor="wide-mode">
-            <p className={styles.name}>Wide Mode</p>
-            <p className={styles.description}>8 boards per column</p>
+            <p className={styles.name}>Širok način</p>
+            <p className={styles.description}>Pokaže 8 plošč na vrstico</p>
           </label>
         </div>
         <hr className={styles.seperator} />
@@ -78,9 +78,9 @@ export function Settings() {
             id="hide-completed-boards"
           />
           <label className={styles.label} htmlFor="hide-completed-boards">
-            <p className={styles.name}>Hide Completed Boards</p>
+            <p className={styles.name}>Skrij končane plošče</p>
             <p className={styles.description}>
-              Boards are hidden when completed
+              Plošče, ki so bile rešene, se umaknejo
             </p>
           </label>
         </div>
@@ -93,8 +93,8 @@ export function Settings() {
             id="hide-empty-rows"
           />
           <label className={styles.label} htmlFor="hide-empty-rows">
-            <p className={styles.name}>Hide Empty Rows</p>
-            <p className={styles.description}>Empty rows are collapsed</p>
+            <p className={styles.name}>Skrij prazne vrstice</p>
+            <p className={styles.description}>Prazne vrstice se zložijo skupaj</p>
           </label>
         </div>
         <div className={styles.setting}>
@@ -106,9 +106,9 @@ export function Settings() {
             id="sticky-input"
           />
           <label className={styles.label} htmlFor="sticky-input">
-            <p className={styles.name}>Sticky Input Field</p>
+            <p className={styles.name}>Lepljiva vnosna vrstica</p>
             <p className={styles.description}>
-              Input fields stick to the bottom when scrolling
+              Vnosna vrstica spodnjih plošč je vedno prikazana
             </p>
           </label>
         </div>
@@ -119,9 +119,9 @@ export function Settings() {
             id="show-hints"
           />
           <label className={styles.label} htmlFor="show-hints">
-            <p className={styles.name}>Show Hints</p>
+            <p className={styles.name}>Kaži namige</p>
             <p className={styles.description}>
-              Show ghost letters and inconsistency warnings
+              Prikazane so rešene črke in nepravilnosti.
             </p>
           </label>
         </div>
@@ -134,9 +134,9 @@ export function Settings() {
             id="swap-backspace-enter"
           />
           <label className={styles.label} htmlFor="swap-backspace-enter">
-            <p className={styles.name}>Swap Backspace/Enter</p>
+            <p className={styles.name}>Zamenjaj Vračalko in Enter</p>
             <p className={styles.description}>
-              Makes keyboard consistent with Wordle
+              Da je tipkovnica enaka kot na Besedle
             </p>
           </label>
         </div>
@@ -149,13 +149,13 @@ export function Settings() {
             id="disable-animations"
           />
           <label className={styles.label} htmlFor="disable-animations">
-            <p className={styles.name}>Disable Animations</p>
+            <p className={styles.name}>Izklopi animacije</p>
             <p className={styles.description}>
-              Disable all game animations. May improve performance
+              Izklopi vse animacije, kar lahko izboljša delovanje.
             </p>
           </label>
         </div>
-        <hr className={styles.seperator} />
+        {/*<hr className={styles.seperator} />
         <KofiEmailInput />
         <div className={cn(styles.setting, !kofiEmail && styles.disabled)}>
           <Checkbox
@@ -165,15 +165,15 @@ export function Settings() {
             id="hide-ads"
           />
           <label className={styles.label} htmlFor="hide-ads">
-            <p className={styles.name}>Hide Ads</p>
-            <p className={styles.description}>Thank you for your support!</p>
+            <p className={styles.name}>Skrij oglase</p>
+            <p className={styles.description}>Hvala za podporo!</p>
           </label>
-        </div>
+        </div>*/}
       </div>
     </Modal>
   );
 }
-
+/*
 function KofiEmailInput() {
   const dispatch = useAppDispatch();
   const kofiEmail = useAppSelector((s) => s.settings.kofiEmail);
@@ -247,4 +247,4 @@ function KofiEmailInput() {
       </p>
     </div>
   );
-}
+}*/
