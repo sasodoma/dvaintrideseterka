@@ -98,7 +98,11 @@ function Board(props: BoardProps) {
         isDimmed && styles.dimmed,
         isHidden && styles.hidden
       )}
-      onClick={() => dispatch(gameAction.highlightClick(props.idx))}
+      onClick={() => {
+        dispatch(gameAction.highlightClick(props.idx));
+        if (complete || gameOver)
+          window.open(`https://www.termania.net/iskanje?Query=${target}`, "_blank");
+      }}
     >
       <div ref={scrollRef} className={styles.scrollIntoView} />
       <ColoredRows
