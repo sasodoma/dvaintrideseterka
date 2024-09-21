@@ -1,37 +1,33 @@
-Further Duotrigordle frontend development is now done in a private repository, thank you to all those who contributed!
+Slovenska različica popularne besedne igre Duotrigordle.
 
-If you have any issues or feature requests, please send an email to support@duotrigordle.com
+# Dvaintrideseterka
 
-# Duotrigordle
+https://dvaintrideseterka.si
 
-https://duotrigordle.com
+Preizkusite svoje znanje in rešite dvaintrideset ugank naenkrat! Imate 37 poskusov, da rešite vseh 32 besed. Vsak dan je na voljo nova Dvaintrideseterka za reševanje.
 
-Put your skills to the test and solve thirty-two Wordles at once! You have 37 guesses to solve all 32 words. A new Duotrigordle is available each day to solve.
+## Lokalni razvoj
 
-## Running Locally
-
-First clone the repository
+Najprej klonirajte repo
 
 ```
-$ git clone https://github.com/thesilican/duotrigordle
+$ git clone https://github.com/sasodoma/dvaintrideseterka
 $ cd duotrigordle
 ```
 
-Then you can run the project using npm
+Nato lahko zaženete projekt z npm
 
 ```
 $ npm install
 $ npm start
 ```
 
-Or using docker compose
+ali pa z docker compose
 
 ```
 $ docker compose up
 ```
 
-then open https://localhost:8080
+## Prispevanje
 
-## Contributions
-
-If you have any features that you would like to see implemented feel free to post an issue requesting it, I try my best to respond in a timely manner.
+Če najdete kako napako, ali imate predlog za izboljšavo, lahko odprete issue ali pull request.
