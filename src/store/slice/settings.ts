@@ -2,6 +2,7 @@ import { createAction, createReducer } from "@reduxjs/toolkit";
 import { initialState } from "..";
 
 export type SettingsState = {
+  gameOverMode: "never" | "nowin" | "noguesses";
   colorBlindMode: boolean;
   showTimer: boolean;
   wideMode: boolean;
@@ -15,6 +16,7 @@ export type SettingsState = {
   kofiEmail: string | null;
 };
 export const settingsInitialState: SettingsState = {
+  gameOverMode: "never",
   colorBlindMode: false,
   showTimer: false,
   wideMode: false,

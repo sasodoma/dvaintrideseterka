@@ -6,6 +6,7 @@ import {
   getAllGuessColors,
   getAllWordsGuessed,
   getCompletedBoards,
+  getCompletedBoardsCount,
   getDailyId,
   getGuessColors,
   getJumbleWords,
@@ -17,7 +18,7 @@ import {
 import { range } from "../../util";
 import {
   NUM_BOARDS,
-  //NUM_GUESSES,
+  NUM_GUESSES,
   PRACTICE_MODE_MIN_ID,
   WORDS_VALID,
 } from "../consts";
@@ -167,10 +168,18 @@ export const gameReducer = createReducer(
         }
 
         // Check if game over
+        const gameOverMode = state.settings.gameOverMode;
         const allWordsGuessed = getAllWordsGuessed(game.targets, game.guesses);
-        //const maxGuesses = game.guesses.length === NUM_GUESSES[game.challenge];
+        const noguesses = game.guesses.length >= NUM_GUESSES[game.challenge];
+        const cantwin = 
+          NUM_GUESSES[game.challenge] - game.guesses.length
+          < NUM_BOARDS - getCompletedBoardsCount(game.targets, game.guesses);
 
-        if (allWordsGuessed) {
+        if (
+          allWordsGuessed
+          || (gameOverMode === "noguesses" && noguesses)
+          || (gameOverMode === "nowin" && cantwin)
+        ) {
           game.endTime = action.payload.timestamp;
 
           // Add stat to game history
