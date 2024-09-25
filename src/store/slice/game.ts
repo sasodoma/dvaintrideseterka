@@ -226,6 +226,12 @@ export const gameReducer = createReducer(
             completedBoards[state.game.highlightedBoard]
           ) {
             highlightNextBoard(state);
+            if (state.game.highlightedBoard !== null) {
+              addSideEffect(state, {
+                type: "scroll-board-into-view",
+                board: state.game.highlightedBoard,
+              });
+            }
           }
         }
 
